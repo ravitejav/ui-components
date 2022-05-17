@@ -24,9 +24,9 @@ const App = () => {
           <div className='p-5 bg-slate-400 h-full'>
             <Title />
             <Routes>
-              <Route path='/' element={<HomePage />} />
-              <Route path='/timer' element={<TimerWrapper />} />
-              <Route path='*' element={<Navigate to={'/'} />} />
+              <Route path='/ui-components' element={<HomePage />} />
+              <Route path='/ui-components/timer' element={<TimerWrapper />} />
+              <Route path='*' element={<Navigate to={'/ui-components'} />} />
             </Routes>
           </div>
         </div>
