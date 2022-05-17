@@ -6,7 +6,7 @@ import commonStyles from '../styles.module.scss'
 
 interface Listener {
   seconds: number
-  callback: number
+  callback: (...args: any) => void
 }
 
 interface TimerProps extends CommonProps {

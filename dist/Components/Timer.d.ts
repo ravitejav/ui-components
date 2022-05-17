@@ -2,7 +2,7 @@
 import { CommonProps } from '../Common/CommonProps';
 interface Listener {
     seconds: number;
-    callback: number;
+    callback: (...args: any) => void;
 }
 interface TimerProps extends CommonProps {
     seconds: number;
