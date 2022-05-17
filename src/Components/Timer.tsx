@@ -12,11 +12,13 @@ interface Listener {
 interface TimerProps extends CommonProps {
   seconds: number
   onTimeEnd?: () => void
-  listenerList?: (list: Array<Listener>) => void
+  listenerList?: Array<Listener>
+  key?: any
 }
 
 export const Timer = (props: TimerProps) => {
   const [remaingSec, setRemainSeconds] = useState(props.seconds)
+  const [listener, setListener] = useState({})
 
   const getTimerFormat = (seconds: number) => {
     const remaingSec = seconds % 60
@@ -28,14 +30,28 @@ export const Timer = (props: TimerProps) => {
   }
 
   useEffect(() => {
-    if (remaingSec <= 0) return
+    if (remaingSec <= 0) {
+      props.onTimeEnd && props.onTimeEnd()
+      return
+    }
+    if (listener[remaingSec]) listener[remaingSec]()
     setTimeout(() => setRemainSeconds((leftSeconds) => leftSeconds - 1), 1000)
   }, [remaingSec])
+
+  useEffect(() => {
+    const listener = {}
+    props.listenerList &&
+      props.listenerList.forEach((listner: Listener) => {
+        listener[listner.seconds] = listner.callback
+      })
+    setListener(listener)
+  }, [props.listenerList])
 
   return (
     <div
       style={props.styles}
       className={`${timerstyles.timerWrapper} ${commonStyles.center}`}
+      key={props.key}
     >
       <span className={timerstyles.displayBlock}>
         {getTimerFormat(remaingSec)}

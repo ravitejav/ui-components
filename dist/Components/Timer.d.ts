@@ -7,7 +7,8 @@ interface Listener {
 interface TimerProps extends CommonProps {
     seconds: number;
     onTimeEnd?: () => void;
-    listenerList?: (list: Array<Listener>) => void;
+    listenerList?: Array<Listener>;
+    key?: any;
 }
 export declare const Timer: (props: TimerProps) => JSX.Element;
 export {};

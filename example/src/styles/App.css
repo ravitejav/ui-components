@@ -1,5 +1,6 @@
 .sidebarWrapper {
     flex: 1;
+    min-height: 100vh;
 }
 .mainBlock {
     flex: 5;

@@ -7,3 +7,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+#root {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+li {
+  padding: 0.25rem;
+  padding-left: 1rem;
+}

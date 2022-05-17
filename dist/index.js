@@ -12,6 +12,10 @@ var Timer = function Timer(props) {
       remaingSec = _useState[0],
       setRemainSeconds = _useState[1];
 
+  var _useState2 = React.useState({}),
+      listener = _useState2[0],
+      setListener = _useState2[1];
+
   var getTimerFormat = function getTimerFormat(seconds) {
     var remaingSec = seconds % 60;
     var minutes = Math.floor(seconds / 60);
@@ -20,16 +24,29 @@ var Timer = function Timer(props) {
   };
 
   React.useEffect(function () {
-    if (remaingSec <= 0) return;
+    if (remaingSec <= 0) {
+      props.onTimeEnd && props.onTimeEnd();
+      return;
+    }
+
+    if (listener[remaingSec]) listener[remaingSec]();
     setTimeout(function () {
       return setRemainSeconds(function (leftSeconds) {
         return leftSeconds - 1;
       });
     }, 1000);
   }, [remaingSec]);
+  React.useEffect(function () {
+    var listener = {};
+    props.listenerList && props.listenerList.forEach(function (listner) {
+      listener[listner.seconds] = listner.callback;
+    });
+    setListener(listener);
+  }, [props.listenerList]);
   return React__default.createElement("div", {
     style: props.styles,
-    className: timerstyles.timerWrapper + " " + commonStyles.center
+    className: timerstyles.timerWrapper + " " + commonStyles.center,
+    key: props.key
   }, React__default.createElement("span", {
     className: timerstyles.displayBlock
   }, getTimerFormat(remaingSec)));
