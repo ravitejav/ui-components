@@ -55,12 +55,10 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "node-sass": "^7.0.1"
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "node-sass": "^7.0.1"
-  }
+  ]
 }
