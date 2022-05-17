@@ -1,0 +1,9 @@
+.timerWrapper {
+    border: 3px solid var(--black-color);
+    background-color: #f9f9f9;
+    width: 8rem;
+    .displayBlock {
+        display: block;
+        margin: 0.5rem;
+    }
+}

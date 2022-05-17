@@ -25,6 +25,4 @@ class Example extends Component {
 }
 ```
 
-## License
-
  © [ravitejav](https://github.com/ravitejav)
