@@ -3,9 +3,9 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var React__default = _interopDefault(React);
 
-var commonStyles = {"center":"_styles-module__center__1AwQe"};
+var commonStyles = {"center":"_1AwQe"};
 
-var timerstyles = {"timerWrapper":"_Timer-module__timerWrapper__racJ3","displayBlock":"_Timer-module__displayBlock__pusAQ"};
+var timerstyles = {"timerWrapper":"_racJ3","displayBlock":"_pusAQ"};
 
 var Timer = function Timer(props) {
   var _props$classList;

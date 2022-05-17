@@ -31,6 +31,10 @@ export const Timer = (props: TimerProps) => {
   }
 
   useEffect(() => {
+    setRemainSeconds(props.seconds)
+  }, [props.seconds])
+
+  useEffect(() => {
     if (remaingSec <= 0) {
       props.onTimeEnd && props.onTimeEnd()
       return
