@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: "12.x"
       - name: INSTALLING DEPENDENCIES
-        run: cd example && npm install
+        run: npm install && cd example && npm install
       - name: BUILDING APPLICATION
         run: cd example && npm run build
       - name: DEPLOYING TO GH-PAGES
