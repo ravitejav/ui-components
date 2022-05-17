@@ -1,5 +1,6 @@
 import { ComponentPropsItem } from "../../Models/ConstantModels";
 
+
 export const TimerComponentPropsList: Array<ComponentPropsItem> = [
     {
         name: 'seconds',
