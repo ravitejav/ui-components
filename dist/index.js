@@ -3,11 +3,13 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var React__default = _interopDefault(React);
 
-var commonStyles = {"center":"_1AwQe"};
+var commonStyles = {"center":"_styles-module__center__1AwQe"};
 
-var timerstyles = {"timerWrapper":"_racJ3","displayBlock":"_pusAQ"};
+var timerstyles = {"timerWrapper":"_Timer-module__timerWrapper__racJ3","displayBlock":"_Timer-module__displayBlock__pusAQ"};
 
 var Timer = function Timer(props) {
+  var _props$classList;
+
   var _useState = React.useState(props.seconds),
       remaingSec = _useState[0],
       setRemainSeconds = _useState[1];
@@ -45,7 +47,7 @@ var Timer = function Timer(props) {
   }, [props.listenerList]);
   return React__default.createElement("div", {
     style: props.styles,
-    className: timerstyles.timerWrapper + " " + commonStyles.center,
+    className: timerstyles.timerWrapper + " " + commonStyles.center + " " + ((_props$classList = props.classList) === null || _props$classList === void 0 ? void 0 : _props$classList.join(' ')),
     key: props.key
   }, React__default.createElement("span", {
     className: timerstyles.displayBlock

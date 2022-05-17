@@ -14,6 +14,7 @@ interface TimerProps extends CommonProps {
   onTimeEnd?: () => void
   listenerList?: Array<Listener>
   key?: any
+  classList?: Array<string>
 }
 
 export const Timer = (props: TimerProps) => {
@@ -50,7 +51,9 @@ export const Timer = (props: TimerProps) => {
   return (
     <div
       style={props.styles}
-      className={`${timerstyles.timerWrapper} ${commonStyles.center}`}
+      className={`${timerstyles.timerWrapper} ${
+        commonStyles.center
+      } ${props.classList?.join(' ')}`}
       key={props.key}
     >
       <span className={timerstyles.displayBlock}>

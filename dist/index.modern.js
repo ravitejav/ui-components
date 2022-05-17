@@ -1,48 +1,41 @@
 import React, { useState, useEffect } from 'react';
 
-var commonStyles = {"center":"_1AwQe"};
+var commonStyles = {"center":"_styles-module__center__1AwQe"};
 
-var timerstyles = {"timerWrapper":"_racJ3","displayBlock":"_pusAQ"};
+var timerstyles = {"timerWrapper":"_Timer-module__timerWrapper__racJ3","displayBlock":"_Timer-module__displayBlock__pusAQ"};
 
-var Timer = function Timer(props) {
-  var _useState = useState(props.seconds),
-      remaingSec = _useState[0],
-      setRemainSeconds = _useState[1];
+const Timer = props => {
+  var _props$classList;
 
-  var _useState2 = useState({}),
-      listener = _useState2[0],
-      setListener = _useState2[1];
+  const [remaingSec, setRemainSeconds] = useState(props.seconds);
+  const [listener, setListener] = useState({});
 
-  var getTimerFormat = function getTimerFormat(seconds) {
-    var remaingSec = seconds % 60;
-    var minutes = Math.floor(seconds / 60);
-    var hours = Math.floor(minutes / 60);
-    return (hours < 10 ? '0' + hours : hours) + " : " + (minutes < 10 ? '0' + minutes : minutes) + " : " + (remaingSec < 10 ? '0' + remaingSec : remaingSec);
+  const getTimerFormat = seconds => {
+    const remaingSec = seconds % 60;
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    return `${hours < 10 ? '0' + hours : hours} : ${minutes < 10 ? '0' + minutes : minutes} : ${remaingSec < 10 ? '0' + remaingSec : remaingSec}`;
   };
 
-  useEffect(function () {
+  useEffect(() => {
     if (remaingSec <= 0) {
       props.onTimeEnd && props.onTimeEnd();
       return;
     }
 
     if (listener[remaingSec]) listener[remaingSec]();
-    setTimeout(function () {
-      return setRemainSeconds(function (leftSeconds) {
-        return leftSeconds - 1;
-      });
-    }, 1000);
+    setTimeout(() => setRemainSeconds(leftSeconds => leftSeconds - 1), 1000);
   }, [remaingSec]);
-  useEffect(function () {
-    var listener = {};
-    props.listenerList && props.listenerList.forEach(function (listner) {
+  useEffect(() => {
+    const listener = {};
+    props.listenerList && props.listenerList.forEach(listner => {
       listener[listner.seconds] = listner.callback;
     });
     setListener(listener);
   }, [props.listenerList]);
   return React.createElement("div", {
     style: props.styles,
-    className: timerstyles.timerWrapper + " " + commonStyles.center,
+    className: `${timerstyles.timerWrapper} ${commonStyles.center} ${(_props$classList = props.classList) === null || _props$classList === void 0 ? void 0 : _props$classList.join(' ')}`,
     key: props.key
   }, React.createElement("span", {
     className: timerstyles.displayBlock

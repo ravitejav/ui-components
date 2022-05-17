@@ -1,7 +1,14 @@
 .sidebarWrapper {
     flex: 1;
     min-height: 100vh;
+    min-width: 15rem;
 }
 .mainBlock {
     flex: 5;
+}
+.copyBlock {
+    animation: fadeIn 0.5s;
+}
+.copyBlock:hover .copyButton {
+    display: block;
 }

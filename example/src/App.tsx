@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
@@ -8,20 +9,26 @@ import { TimerWrapper } from './Components/TimerWrapper'
 import 'ui-components/dist/index.css'
 import './styles/main.css'
 import './styles/App.css'
+import { NavBar } from './Components/NavBar'
+import { Title } from './Components/Title'
 
 const App = () => {
   return (
     <BrowserRouter>
-      <main className='flex'>
+      <main className='flex '>
         <div className='sidebarWrapper bg-slate-900'>
           <SideBar />
         </div>
-        <div className='mainBlock'>
-          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/timer' element={<TimerWrapper />} />
-            <Route path='*' element={<Navigate to={'/'} />} />
-          </Routes>
+        <div className='mainBlock flex flex-col'>
+          <NavBar />
+          <div className='p-5 bg-slate-400 h-full'>
+            <Title />
+            <Routes>
+              <Route path='/' element={<HomePage />} />
+              <Route path='/timer' element={<TimerWrapper />} />
+              <Route path='*' element={<Navigate to={'/'} />} />
+            </Routes>
+          </div>
         </div>
       </main>
     </BrowserRouter>

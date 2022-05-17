@@ -1,15 +1,18 @@
 :root {
   --black-color: #000; }
 
-._1AwQe {
+._styles-module__center__1AwQe {
   display: flex;
   text-align: center;
   justify-content: center; }
 
-._racJ3 {
+._Timer-module__timerWrapper__racJ3 {
   border: 3px solid var(--black-color);
   background-color: #f9f9f9;
-  width: 8rem; }
-  ._racJ3 ._pusAQ {
+  width: 8rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content; }
+  ._Timer-module__timerWrapper__racJ3 ._Timer-module__displayBlock__pusAQ {
     display: block;
     margin: 0.5rem; }

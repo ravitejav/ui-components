@@ -9,6 +9,7 @@ interface TimerProps extends CommonProps {
     onTimeEnd?: () => void;
     listenerList?: Array<Listener>;
     key?: any;
+    classList?: Array<string>;
 }
 export declare const Timer: (props: TimerProps) => JSX.Element;
 export {};
