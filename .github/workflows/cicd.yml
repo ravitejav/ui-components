@@ -12,7 +12,7 @@ jobs:
       - name: Set-Up Node
         uses: actions/setup-node@v1
         with:
-          node-version: "12.x"
+          node-version: "16.13.2"
       - name: INSTALLING DEPENDENCIES
         run: npm install && cd example && npm install
       - name: BUILDING APPLICATION

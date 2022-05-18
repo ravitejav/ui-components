@@ -23,6 +23,9 @@ var Timer = function Timer(props) {
   };
 
   useEffect(function () {
+    setRemainSeconds(props.seconds);
+  }, [props.seconds]);
+  useEffect(function () {
     if (remaingSec <= 0) {
       props.onTimeEnd && props.onTimeEnd();
       return;

@@ -26,6 +26,9 @@ var Timer = function Timer(props) {
   };
 
   React.useEffect(function () {
+    setRemainSeconds(props.seconds);
+  }, [props.seconds]);
+  React.useEffect(function () {
     if (remaingSec <= 0) {
       props.onTimeEnd && props.onTimeEnd();
       return;
