@@ -11,7 +11,7 @@ export const Title = () => {
 
     useEffect(() => {
         console.log(path.pathname, path.pathname === "/")
-        if(path.pathname === "/") setShowNabar(false);
+        if(path.pathname === "/ui-components") setShowNabar(false);
         else if(!showNavbar)setShowNabar(true);
         setTitle(getTitle(path.pathname));
     }, [path]);
